@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from rapidfuzz import process, fuzz
 
-fastapp = Flask(__name__)
+app = Flask(__name__)
 
 class EcommerceSearch:
     def __init__(self, excel_file):
@@ -54,7 +54,7 @@ class EcommerceSearch:
 # Initialize search system with your uploaded Excel file
 search_system = EcommerceSearch('F:/PAR Solutions/text 2 image model/Searching/data/10turtle Ecommerce Page.xlsx')
 
-@fastapp.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     result = None
     if request.method == 'POST':
@@ -63,7 +63,7 @@ def index():
             result = search_system.search_data(user_query)
     return render_template('2index.html', result=result)
 
-@fastapp.route('/api/search', methods=['POST'])
+@app.route('/api/search', methods=['POST'])
 def api_search():
     data = request.get_json()
     user_query = data.get('query', '')
@@ -74,7 +74,7 @@ def api_search():
     return jsonify(result), 200
 
 if __name__ == '__main__':
-    fastapp.run(debug=True)
+    app.run(debug=True)
 
 #------------------------------------------------------------------------------------------------TRY 2
 # from flask import Flask, render_template, request, jsonify
