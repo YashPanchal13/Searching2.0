@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-Commerce Search</title>
+</head>
+<body>
+    <h1>Search Products</h1>
+    <form method="POST">
+        <input type="text" name="query" placeholder="Search here..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if result %}
+        <h2>{{ result.message }}</h2>
+        <ul>
+            {% for record in result.results %}
+                <li>
+                    {% for key, value in record.items() %}
+                        <strong>{{ key }}:</strong> {{ value }} <br>
+                    {% endfor %}
+                    <hr>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
