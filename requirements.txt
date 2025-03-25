@@ -5,4 +5,5 @@ Flask==3.1.0
 gunicorn==23.0.0
 pandas
 numpy 
-rapidfuzz import process, fuzz
+rapidfuzz==3.6.1
+openpyxl==3.1.2
