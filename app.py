@@ -52,7 +52,7 @@ class EcommerceSearch:
         return {"message": message, "results": results}
 
 # Initialize search system with your uploaded Excel file
-search_system = EcommerceSearch('F:/PAR Solutions/text 2 image model/Searching2.0/data/10turtle Ecommerce Page.xlsx')
+search_system = EcommerceSearch('data/10turtle Ecommerce Page.xlsx')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
